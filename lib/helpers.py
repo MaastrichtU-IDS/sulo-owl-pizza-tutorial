@@ -1,6 +1,8 @@
 from owlready2 import *
 from graphviz import Digraph
 from contextlib import contextmanager
+from contextlib import redirect_stdout, redirect_stderr
+import re
 
 @contextmanager
 def editing(onto):
@@ -19,30 +21,52 @@ def add_disjoint(*classes):
     AllDisjoint([*classes])
 
 
-def get_tree(ontos):
-    g = Digraph("classes", graph_attr={"rankdir":"TB"})
+
+def get_color_tree(ontos):
+    # Normalize input to a list
+    onto_list = ontos if isinstance(ontos, list) else [ontos]
+
+    # Nice, distinct pastel palette; will cycle if there are more ontologies
+    palette = [
+        "#A7C7E7", "#F4B6C2", "#B5EAD7", "#FFDAC1", "#C7CEEA",
+        "#F1F0B2", "#FFD6E0", "#C9F9FF", "#D5E8D4", "#E1D5E7"
+    ]
+    onto_colors = {onto.name: palette[i % len(palette)] for i, onto in enumerate(onto_list)}
     
+    g = Digraph("classes", graph_attr={"rankdir": "TB"})
+
+    # Collect classes and labels
     all_classes = []
-    all_names = {}
-    for onto in ontos if isinstance(ontos, list) else [ontos]:
+    all_labels = {}
+    for onto in onto_list:
         classes = list(onto.classes())
-        names = {c: c.name for c in classes}
+        labels = {c: c.name for c in classes}
         all_classes.extend(classes)
-        all_names.update(names)
+        all_labels.update(labels)
+
     classes = set(all_classes)
-    names = all_names
-    
-    for c in classes:
-        if not names[c]:
-            names[c] = f"{c.iri.split('#')[-1]}"
-        g.node(names[c])
-    
+    labels = all_labels
+
+    # Create nodes with color by ontology
+    for c in classes:  
+        owner = c.namespace.name
+        fill = onto_colors.get(owner, "#FFFFFF")
+        # Use the IRI as the unique node id; keep a short human label
+        g.node(
+            name=labels[c],
+            style="filled",
+            fillcolor=fill,
+            tooltip=f"{labels[c]} · {owner}"
+        )
+
+    # Create edges for subclass relations
     for c in classes:
         for parent in c.is_a:
             if isinstance(parent, ThingClass) and parent in classes:
-                g.edge(names[parent], names[c])
+                g.edge(all_labels[parent], labels[c])
 
     return g
+
 
 def onto_class_tree(onto):
     g = Digraph("sulo_classes", graph_attr={"rankdir":"TB"})
@@ -75,15 +99,29 @@ def onto_property_map(onto):
                     g.edge(d.name, r.name, label=p.name)
     return g
 
-from contextlib import redirect_stdout, redirect_stderr
-def callReasoner(onto=None):
-    with open('/dev/null', 'w') as f, redirect_stdout(f), redirect_stderr(f):
-        with onto:
-            sync_reasoner(ignore_unsupported_datatypes=True)
-            return list(onto.inconsistent_classes())
+        
+def safe_call_reasoner(onto):
+    try:
+        with open('/dev/null', 'w') as f, redirect_stdout(f), redirect_stderr(f):
+            with onto:
+                sync_reasoner(ignore_unsupported_datatypes=True)
+            
+            return {"ok": True, "inconsistent": list(onto.inconsistent_classes())}
+    
+    except Exception as e:
+        # anything else
+        msg = str(e)
+        m = re.search(r"Exception:\s*(.*)", msg)
+        if m:
+            error = m.group(1).strip()
+        return {"ok": False, "error": error, "inconsistent": None}
 
 def in_ancestors(onto, cls, ancestor):
-    callReasoner(onto)
+    res = safe_call_reasoner(onto)
+    if not res["ok"]:
+        print("Reasoner Error: \n", res["error"])
+        return
+
     if ancestor in cls.ancestors():
         print(f"{cls.name} is a subclass of {ancestor.name}")
     else:
