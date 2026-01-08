@@ -1,0 +1,11 @@
+title: SULO Pizza Tutorial
+theme: jekyll-theme-cayman # Or 'minimal'
+
+# This adds a simple sidebar or top nav depending on the theme
+nav:
+  - text: Home
+    url: /
+  - text: ESWC 2026
+    url: /events/eswc2026/
+  - text: GitHub Repo
+    url: https://github.com/micheldumontier]/sulo-owl-pizza-tutorial
