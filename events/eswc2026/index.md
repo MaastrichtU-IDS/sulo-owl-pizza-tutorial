@@ -1,7 +1,7 @@
 ---
-layout: page
+layout: default
 title: ESWC 2026 Tutorial
-description: FAIR Ontology Engineering with SULO - ESWC 2026
+description: FAIR Ontology Engineering with SULO @ ESWC 2026
 ---
 
 # FAIR Ontology Engineering with SULO: An ESWC 2026 tutorial
