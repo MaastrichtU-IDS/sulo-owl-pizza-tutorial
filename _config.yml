@@ -10,6 +10,6 @@ nav:
   - text: Home
     url: /
   - text: ESWC 2026
-    url: /events/eswc2026
+    url: /events/eswc2026/
   - text: GitHub Repo
     url: https://github.com/maastrichtu-ids/sulo-owl-pizza-tutorial
