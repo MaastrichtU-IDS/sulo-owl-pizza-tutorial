@@ -65,27 +65,33 @@ The learning goals of the tutorial are twofold:
 
 
 ### 🕒 Schedule (May 10/11 2026)
-A half-day tutorial with two components
+A half-day tutorial (3.45h) with two core components
 *  SULO-based knowledge representation
-*  Hands-on session to implement with Python (or Protege)
+*  Hands-on implementation
 
-| Activity | Duration | Description | OWL constructs
-| :--- | :--- |
-| What is an ontology? | 15 min | 
-| SULO in a nutshell | 45 min| Classes, Object and Data Properties, Datatypes, Literals, Property expressions (Object and Data Property), Data Ranges
-| Declaration | 20 min | Entity Declarations (Class, Individual), Axioms (Subclass, Disjoint), Annotation Properties
-| Composition | 20 min | Class Expression Exioms: Class Expressions, Propositional Connectives, Existential and Universal Quantification, Object Property Cardinality Restrictions (minimum, maximum, exact)
-| Qualities | 15 min | 
-| Quantities |
-| Identity, transformation, and development | 20 min |  Individuals, Individual equality and inequality
-| Spatial containment and movement | 20 min |
-| Time | 20 min |
-| OntoStart Deployment | 20 min | Ontology IRI, OWL Versioning, Ontology Annotations, OWL Syntaxes
-| FAIRness assessment | 15 min |
+
+| Activity | Duration | Description | OWL constructs introduced |
+| :--- | :--- | :--- | :--- | 
+| Tutorial overview | 5 min | Introduction to the tutorial | |
+| What is an ontology? | 10 min | Overview of what ontologies are, and how they differ from terminologies, vocabularies, and schemas | |
+| SULO quick overview | 10 min | Brief overview of classes and relations, the SULO postcard as a reference material | |
+| OWL Declarations | 15 min | Declaring classes and individuals within an OWL ontology, importing SULO | Entity Declarations (Class, Object and Data Property, Individual), Axioms (Class, Subclass, Disjoint), Annotation Properties, OWL Imports  |
+| Composition | 20 min | Describing necessary and/or sufficient conditions for class membership, focusing on pizzas and their parts | Class Expression Exioms: Class Expressions, Propositional Connectives, Existential and Universal Quantification, Object Property Cardinality Restrictions (minimum, maximum, exact), Object Subproperties ( sub, inverse, domain, range, Functional, Transitive), Complex role inclusions |
+| Qualities | 15 min | Qualities as intrinsic characteristics, focusing on the spicyness of a pizza and its ingredients | DisjointUnion |
+| Quantities | 15 min | Quantities as associated features, focusing on a numeric representation of spicyness of an ingredient | Functional data property, Data Property Cardinality Restrictions, Datatype Restriction | 
+| Processes | 30 min | Processes, their parts and participants, development (maintainance of identity) and transformation (entities are created and destroyed), focusing on making of the pizza dough and crust | Individuals, Individual equality and inequality |
+| break | 15 min | || 
+| Time | 15 min | Time as a measured quantity that can be associated to processes or objects, and temporal ordering, focusing on when a pizza order was received, the pizza baked, and when it was delivered | |
+| Spatial containment and movement | 15 min | Differentiating spatial containment from parthood, movement of objects within a process, focusing on the addition and removal of the pizza in the pizza delivery box | |
+| Q&A | 30 min | Discussion of modeling approaches within and beyond the tutorial | |
+| OntoStart Deployment | 15 min | Publishing FAIR ontologies with documentation through Github actions | Ontology IRI, OWL Versioning, Ontology Annotations, OWL Syntaxes |
+| FAIRness assessment | 10 min | Examining the output of a FOOPS! fairness assessment report | |
+| Wrap up | 5 min | Q&A and wrap up | |
+
 
 
 ### Speakers
-Michel Dumontier is the Distinguished Professor of Data Science at Maastricht
+[**Michel Dumontier**](https://www.maastrichtuniversity.nl/mj-dumontier) is the Distinguished Professor of Data Science at Maastricht
 University and co-founder of the Department of Advanced Computing
 Sciences. He is a leading researcher in biomedical ontologies, knowledge graphs,
 and Semantic Web technologies. He co-founded the FAIR principles, leads major
@@ -94,7 +100,7 @@ engineering, knowledge graphs, and Semantic Web technologies at undergruadate
 and graduate level. He is a co-creator of SULO and created the ontostart
 FAIR ontology template project.
 
-Remzi Celebi is an Assistant Professor in the Department of Advanced Computing
+[**Remzi Celebi**](https://www.maastrichtuniversity.nl/r-celebi) is an Assistant Professor in the Department of Advanced Computing
 Sciences at Maastricht University. His research focuses on semantic data
 integration, biomedical ontologies, knowledge graphs, and machine learning methods
 for health applications. Remzi is an experienced instructor and teaches
