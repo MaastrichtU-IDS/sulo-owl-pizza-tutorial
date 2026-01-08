@@ -8,7 +8,7 @@ Designing high-quality ontologies that are Findable, Accessible, Interoperable, 
 practice. This tutorial introduces a fully integrated workflow for principled ontology engineering based on the Simplified Upper Level Ontology
 (SULO), a lightweight upper-level ontology designed to guide conceptual representation. Through a hands-on, end-to-end examples, participants
 will (re)conceptualize, formalize, and automatically reason over the pizza domain using SULO design patterns in a notebook setting. Participants will use the OntoStart platform to
-publish their own ontology in a FAIR manner. The tutorial is aimed at students, researhers, and practitioners building domain ontologies. Participants will
+publish their own ontology in a FAIR manner. The tutorial is aimed at students, researchers, and practitioners building domain ontologies. Participants will
 learn methodology and leave with a practical skills to bootstrap their own FAIR ontology projects.
 
 
