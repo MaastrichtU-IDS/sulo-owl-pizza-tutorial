@@ -65,7 +65,7 @@ The learning goals of the tutorial are twofold:
 
 
 ### 🕒 Schedule (May 10/11 2026)
-A half-day tutorial (3.45h) with two core components
+A half-day tutorial (4h) with two core components
 *  SULO-based knowledge representation
 *  Hands-on implementation
 
@@ -80,6 +80,7 @@ A half-day tutorial (3.45h) with two core components
 | Qualities | 15 min | Qualities as intrinsic characteristics, focusing on the spicyness of a pizza and its ingredients | DisjointUnion |
 | Quantities | 15 min | Quantities as associated features, focusing on a numeric representation of the spicyness quality of an ingredient | Functional data property, Data Property Cardinality Restrictions, Datatype Restriction | 
 | Processes, process parts, and roles | 30 min | Processes, their parts, participants and their roles, development (maintainance of identity) and transformation (entities are created and destroyed), focusing on making of the pizza dough and crust | Individuals, Individual equality and inequality |
+| Information Entities | 15 min | The receipt obtained after having paid for the pizza | | |
 | break | 15 min | || 
 | Time | 15 min | Time as a measured quantity that can be associated to processes or objects, and temporal ordering, focusing on when a pizza order was received, the pizza baked, and when it was delivered | |
 | Spatial containment and movement | 15 min | Differentiating spatial containment from parthood, movement of objects within a process, focusing on the addition and removal of the pizza in the pizza delivery box | |
