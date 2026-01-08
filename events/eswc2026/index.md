@@ -1,10 +1,7 @@
 ---
 layout: default
-title: ESWC 2026 Tutorial
-description: FAIR Ontology Engineering with SULO @ ESWC 2026
+title: FAIR Ontology Engineering with SULO @ ESWC 2026
 ---
-
-# FAIR Ontology Engineering with SULO: An ESWC 2026 tutorial
 
 ## Overview
 Designing high-quality ontologies that are Findable, Accessible, Interoperable, and Reusable (FAIR) remains a key challenge in
